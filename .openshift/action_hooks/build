@@ -1,0 +1,15 @@
+#!/bin/sh
+
+echo "-----------------------------------------"
+echo "Executing ...build... user action hook"
+echo "-----------------------------------------"
+
+cd $OPENSHIFT_REPO_DIR
+export PATH=$JAVA_HOME/bin:$M2_HOME/bin:$PATH
+
+mkdir /tmp/JIBI
+mvn clean package -P openshift -DskipTests
+
+echo "-----------------------------------------"
+echo "Finishing ...build... user action hook"
+echo "-----------------------------------------"
